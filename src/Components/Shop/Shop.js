@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Navbar from "../Navbar/Navbar";
 import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     fetch("data.json")
@@ -11,13 +13,24 @@ const Shop = () => {
       .then((data) => setProducts(data));
   }, []);
 
-  console.log(products);
+  const addToCart = (product) => {
+    const newCart = [...cart, product];
+    setCart(newCart);
+  };
+
   return (
-    <div className="products-container">
-      <div className="row g-4">
-        {products.map((product) => (
-          <Product product={product} key={product.id}></Product>
-        ))}
+    <div>
+      <Navbar cartItem={cart}></Navbar>
+      <div className="products-container">
+        <div className="row g-4">
+          {products.map((product) => (
+            <Product
+              product={product}
+              key={product.id}
+              addToCart={addToCart}
+            ></Product>
+          ))}
+        </div>
       </div>
     </div>
   );
