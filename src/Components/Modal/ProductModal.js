@@ -7,7 +7,7 @@ const ProductModal = ({ cartItem }) => {
   const customStyles = {
     content: {
       width: "50%",
-      height:"500px",
+      height: "500px",
       overFlow: "scroll",
       top: "50%",
       left: "50%",
@@ -28,6 +28,12 @@ const ProductModal = ({ cartItem }) => {
     setIsOpen(false);
   }
 
+  let totalPrice = 0;
+  cartItem.forEach((element) => {
+    totalPrice += parseFloat(element.price);
+  });
+
+
   return (
     <div>
       <button onClick={openModal} className="btn btn-dark">
@@ -44,6 +50,7 @@ const ProductModal = ({ cartItem }) => {
           close
         </button>
         <h2 className="text-center">Total Item : {cartItem.length}</h2>
+        <h2 className="text-center">Total Price: ${totalPrice}</h2>
         <hr />
         {cartItem.map((item) => (
           <ProductModalDesign item={item}></ProductModalDesign>
