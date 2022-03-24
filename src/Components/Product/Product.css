@@ -1,0 +1,50 @@
+.card-container{
+    border: 2px solid gray;
+}
+
+.img-container {
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    padding: 25px;
+    margin: 0 auto;
+}
+
+.img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.card-details{
+    padding: 0px 20px;
+    margin-bottom: 20px;
+}
+
+.card-details p{
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.common-details{
+    margin:20px 0px;
+}
+
+.product-price{
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.cart-icon{
+    font-size: 2rem;
+}
+
+.buy-btn{
+    
+    padding: 10px 45px;
+}
+
+.buy-btn:hover{
+    background-color: black;
+    color: red;
+}
